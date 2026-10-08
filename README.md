@@ -253,7 +253,7 @@ Le prestazioni di Claude Code su Android possono variare in base al dispositivo 
 
 ---
 
-## Avvio rapido tramite script e widget
+# Avvio rapido tramite script e widget
 
 Se utilizzi spesso Claude Code nello stesso progetto, puoi creare uno script che:
 
@@ -264,7 +264,7 @@ Se utilizzi spesso Claude Code nello stesso progetto, puoi creare uno script che
 
 Lo script verrà inserito direttamente nella cartella `~/.shortcuts`, utilizzata da **Termux:Widget**. In questo modo potrai avviare Claude Code direttamente dalla schermata Home di Android, senza dover aprire manualmente Termux e digitare i comandi.
 
-### 1. Creare la cartella degli shortcut
+## 1. Creare la cartella degli shortcut
 
 Da Termux, crea la cartella `~/.shortcuts`:
 
@@ -272,7 +272,7 @@ Da Termux, crea la cartella `~/.shortcuts`:
 mkdir -p ~/.shortcuts
 ```
 
-### 2. Creare lo script
+## 2. Creare lo script
 
 Crea direttamente lo script all'interno della cartella degli shortcut:
 
@@ -301,7 +301,7 @@ Salva il file e rendilo eseguibile:
 chmod +x ~/.shortcuts/Claude
 ```
 
-### 3. Testare lo script
+## 3. Testare lo script
 
 Prima di configurare il widget, puoi verificare che lo script funzioni correttamente direttamente da Termux:
 
@@ -311,7 +311,7 @@ Prima di configurare il widget, puoi verificare che lo script funzioni correttam
 
 Se tutto è configurato correttamente, verrà avviato Ubuntu, verrà raggiunta automaticamente la cartella del progetto e partirà Claude Code.
 
-### 4. Installare Termux:Widget
+## 4. Installare Termux:Widget
 
 Installa **Termux:Widget** sul dispositivo Android.
 
@@ -319,7 +319,7 @@ Termux:Widget permette di eseguire gli script presenti nella cartella `~/.shortc
 
 > Assicurati di utilizzare una versione di Termux:Widget compatibile con la tua installazione di Termux.
 
-### 5. Aggiungere il widget alla schermata Home
+## 5. Aggiungere il widget alla schermata Home
 
 Dopo aver installato Termux:Widget:
 
@@ -333,7 +333,7 @@ A questo punto verrà visualizzato il collegamento allo script.
 
 Toccandolo, Termux:Widget eseguirà automaticamente lo script.
 
-### Risultato
+## Risultato
 
 Con un solo tocco verrà eseguita questa sequenza:
 
@@ -353,7 +353,7 @@ Claude Code
 
 Non sarà quindi necessario aprire manualmente Termux, entrare in Ubuntu, raggiungere la cartella del progetto e digitare `claude`.
 
-### Cambiare progetto
+## Cambiare progetto
 
 Se vuoi utilizzare lo script con un'altra cartella, modifica semplicemente questa riga:
 
@@ -375,13 +375,13 @@ Il resto dello script non deve essere modificato.
 
 ---
 
-## Riferimenti
+# Riferimenti
 
 Ho preso qualche info su quest'altro progetto: https://github.com/ferrumclaudepilgrim/claude-code-android che vi consiglio di visitare per maggiori informazioni. 
 
 ---
 
-## Licenza
+# Licenza
 
 Questa guida è distribuita a scopo informativo.
 
