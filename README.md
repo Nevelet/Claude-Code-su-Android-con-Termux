@@ -253,6 +253,128 @@ Le prestazioni di Claude Code su Android possono variare in base al dispositivo 
 
 ---
 
+## Avvio rapido tramite script e widget
+
+Se utilizzi spesso Claude Code nello stesso progetto, puoi creare uno script che:
+
+1. avvia Ubuntu;
+2. imposta il `PATH` di Claude Code;
+3. entra automaticamente nella cartella del progetto;
+4. avvia Claude Code.
+
+Lo script verrà inserito direttamente nella cartella `~/.shortcuts`, utilizzata da **Termux:Widget**. In questo modo potrai avviare Claude Code direttamente dalla schermata Home di Android, senza dover aprire manualmente Termux e digitare i comandi.
+
+### 1. Creare la cartella degli shortcut
+
+Da Termux, crea la cartella `~/.shortcuts`:
+
+```bash
+mkdir -p ~/.shortcuts
+```
+
+### 2. Creare lo script
+
+Crea direttamente lo script all'interno della cartella degli shortcut:
+
+```bash
+nano ~/.shortcuts/Claude
+```
+
+Inserisci il seguente contenuto:
+
+```bash
+#!/data/data/com.termux/files/usr/bin/bash
+
+# Cartella del progetto su Android
+PROJECT_PATH="/storage/emulated/0/Download/Syncthing/Obsidian/Second Brain"
+
+# Converti il percorso Android nel percorso visibile da Ubuntu
+UBUNTU_PATH="/data/data/com.termux/files/home/storage/shared${PROJECT_PATH#/storage/emulated/0}"
+
+# Entra in Ubuntu, imposta il PATH, raggiunge il progetto e avvia Claude Code
+proot-distro login ubuntu -- bash -c 'export PATH="$HOME/.local/bin:$PATH"; cd "'"$UBUNTU_PATH"'" && claude'
+```
+
+Salva il file e rendilo eseguibile:
+
+```bash
+chmod +x ~/.shortcuts/Claude
+```
+
+### 3. Testare lo script
+
+Prima di configurare il widget, puoi verificare che lo script funzioni correttamente direttamente da Termux:
+
+```bash
+~/.shortcuts/Claude
+```
+
+Se tutto è configurato correttamente, verrà avviato Ubuntu, verrà raggiunta automaticamente la cartella del progetto e partirà Claude Code.
+
+### 4. Installare Termux:Widget
+
+Installa **Termux:Widget** sul dispositivo Android.
+
+Termux:Widget permette di eseguire gli script presenti nella cartella `~/.shortcuts` direttamente dalla schermata Home.
+
+> Assicurati di utilizzare una versione di Termux:Widget compatibile con la tua installazione di Termux.
+
+### 5. Aggiungere il widget alla schermata Home
+
+Dopo aver installato Termux:Widget:
+
+1. tieni premuto su uno spazio vuoto della schermata Home;
+2. apri la sezione **Widget**;
+3. cerca **Termux:Widget**;
+4. aggiungilo alla schermata Home;
+5. seleziona lo script **Claude**.
+
+A questo punto verrà visualizzato il collegamento allo script.
+
+Toccandolo, Termux:Widget eseguirà automaticamente lo script.
+
+### Risultato
+
+Con un solo tocco verrà eseguita questa sequenza:
+
+```text
+Schermata Home Android
+        ↓
+Termux:Widget
+        ↓
+~/.shortcuts/Claude
+        ↓
+Avvio di Ubuntu
+        ↓
+Cartella "Second Brain"
+        ↓
+Claude Code
+```
+
+Non sarà quindi necessario aprire manualmente Termux, entrare in Ubuntu, raggiungere la cartella del progetto e digitare `claude`.
+
+### Cambiare progetto
+
+Se vuoi utilizzare lo script con un'altra cartella, modifica semplicemente questa riga:
+
+```bash
+PROJECT_PATH="/storage/emulated/0/Download/Syncthing/Obsidian/Second Brain"
+```
+
+inserendo il percorso della nuova cartella.
+
+Il resto dello script non deve essere modificato.
+
+> **Nota:** il percorso utilizzato deve essere accessibile da Termux. Se non hai ancora autorizzato Termux ad accedere alla memoria condivisa di Android, esegui una volta:
+>
+> ```bash
+> termux-setup-storage
+> ```
+>
+> e concedi l'autorizzazione richiesta da Android.
+
+---
+
 ## Riferimenti
 
 Ho preso qualche info su quest'altro progetto: https://github.com/ferrumclaudepilgrim/claude-code-android che vi consiglio di visitare per maggiori informazioni. 
