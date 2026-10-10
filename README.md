@@ -313,7 +313,7 @@ Se tutto è configurato correttamente, verrà avviato Ubuntu, verrà raggiunta a
 
 ## 4. Installare Termux:Widget
 
-Installa **Termux:Widget** sul dispositivo Android.
+Installa **Termux:Widget** sul dispositivo Android da [qui](https://f-droid.org/it/packages/com.termux.widget/)
 
 Termux:Widget permette di eseguire gli script presenti nella cartella `~/.shortcuts` direttamente dalla schermata Home.
 
